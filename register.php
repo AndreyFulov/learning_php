@@ -11,7 +11,7 @@ include "inc/connect.php";
     <p>Есть аккаунт?<a href="<?php echo $config["sub_url"]?>/login.php">Войти!</a></p>
 </form>
 <?php
-if($_POST['do_register']) {
+if(isset($_POST['do_register'])) {
     $result = mysqli_num_rows($db_connect->query("SELECT * FROM users WHERE username = '$_POST[login]'"));
     if($result >= 1) {
         echo "Логин уже занят";
